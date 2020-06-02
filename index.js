@@ -9,8 +9,9 @@ const mongodbOptions = {
     useCreateIndex:true,
     useUnifiedTopology:true 
 };
+const MONGOOSE_URI='mongodb://localhost:27017/class08_401d3';
 
-mongoose.connect(process.env.MONGOOSE_URI, mongodbOptions);
+mongoose.connect(MONGOOSE_URI, mongodbOptions);
 
 server.start();
 
