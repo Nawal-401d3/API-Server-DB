@@ -8,7 +8,7 @@ const categories = new Categories();
 describe('Categories Model (Modular)', () => {
 
   it('can create() a new category', () => {
-    let obj = { name: 'bags' };
+    let obj = { name: 'bags' ,display_name:'nike bags',desp:'about bags'};
     categories.create(obj)
       .then(record => {
         Object.keys(obj).forEach(key => {
@@ -19,7 +19,7 @@ describe('Categories Model (Modular)', () => {
   
 
   it('can get() a category', () => {
-    let obj = { name: 'bags' };
+    let obj = { name: 'bags' ,display_name:'nike bags',desp:'about bags'};
     categories.create(obj)
       .then(record => {
         // console.log(record);
@@ -34,7 +34,7 @@ describe('Categories Model (Modular)', () => {
   });
   
   it('can update() a categories', () => {
-    let obj = { name: 'bags' };
+    let obj = { name: 'bags' ,display_name:'nike bags',desp:'about bags'};
     categories.create(obj)
       .then(record => {
         // console.log(record);
@@ -49,7 +49,7 @@ describe('Categories Model (Modular)', () => {
   });
   
   it('can get() all categories', () => {
-    let obj = { name: 'bags' };
+    let obj = { name: 'bags' ,display_name:'nike bags',desp:'about bags'};
     categories.create(obj)
       .then(record => {
         // console.log(record);
@@ -64,7 +64,7 @@ describe('Categories Model (Modular)', () => {
   });
   
   it('can delete() a category', () => {
-    let obj = { name: 'bags' };
+    let obj = { name: 'bags' ,display_name:'nike bags',desp:'about bags'};
     categories.create(obj)
       .then(record => {
         // console.log(record);
