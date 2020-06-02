@@ -39,7 +39,7 @@ class Model {
        * @param {string} _id 
        */
     delete(_id) {
-        return this.schema.findByIdAndDpdate(_id);
+        return this.schema.findByIdAndDelete(_id);
     } // end of delete method 
 
 } // end of model class 
