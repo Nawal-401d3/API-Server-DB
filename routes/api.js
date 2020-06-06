@@ -12,29 +12,29 @@ const proMod = new Products();
 
 // makes the products and categories route generic 
 function modelName(req, res, next) {
-    // make the model name generic globally 
-    let model = req.params.model;
+  // make the model name generic globally 
+  let model = req.params.model;
 
-    // to modify the middleware request 
-    switch (model) {
-        // api/v1/modelN === api/v1/categories 
-        case 'categories':
-            req.model = catMod;
-            next();
-            return;
+  // to modify the middleware request 
+  switch (model) {
+  // api/v1/modelN === api/v1/categories 
+  case 'categories':
+    req.model = catMod;
+    next();
+    return;
 
-        // api/v1/modelN === api/v1/produts 
-        case 'products':
-            req.model = proMod;
-            next();
-            return;
+    // api/v1/modelN === api/v1/produts 
+  case 'products':
+    req.model = proMod;
+    next();
+    return;
 
-        // if the model name invalid , the middleware error will occars 
-        default:
-            next(' This model Name Not Exist');
-            return;
+    // if the model name invalid , the middleware error will occars 
+  default:
+    next(' This model Name Not Exist');
+    return;
 
-    } // end of switch statement 
+  } // end of switch statement 
 
 } // end of modelname function 
 
@@ -52,44 +52,44 @@ router.delete('/:model/:id', deleteMod);
 
 
 function getMod(req, res, next) {
-    req.model.get()
-        .then(data => {
-            console.log('data : ', data);
-            res.status(200).json(data);
-        })
-        .catch(next);
+  req.model.get()
+    .then(data => {
+      console.log('data : ', data);
+      res.status(200).json(data);
+    })
+    .catch(next);
 }
 
 function getOne(req, res, next) {
-    let id = req.param.id;
-    req.model.get(id)
-      .then(data => {
-        res.status(200).json(data);
-      })
-      .catch(next);
-  } // end of getOne function
+  let id = req.param.id;
+  req.model.get(id)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(next);
+} // end of getOne function
 
 function postMod(req, res, next) {
-    req.model.create(req.body)
-        .then(data => {
-            res.status(200).json(data);
-        })
-        .catch(next);
+  req.model.create(req.body)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(next);
 }
 function putMod(req, res, next) {
-    req.model.update(req.params.id, req.body)
-        .then(data => {
-            res.status(200).json(data);
-        })
-        .catch(next);
+  req.model.update(req.params.id, req.body)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(next);
 }
 
 function deleteMod(req, res, next) {
-    req.model.delete(req.params.id)
-        .then(data => {
-            res.status(200).json(data);
-        })
-        .catch(next);
+  req.model.delete(req.params.id)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(next);
 }
 
 module.exports = router;
